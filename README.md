@@ -20,3 +20,8 @@ A lightweight DDNS updater using Tencent Cloud API 3.0, with full IPv4 and IPv6 
 4. **Run the update scripts** to enable automatic DNS updates:  
    - `tencent_ddns_ModifyDynamicDNS_ipv4.sh`  
    - `tencent_ddns_ModifyDynamicDNS_ipv6.sh`
+5. **(Optional)** After testing, set up a `cron` job to run the update scripts periodically. For example, to run both scripts every 5 minutes, add the following line to your crontab:
+
+   ```
+   */5 * * * * /path/to/tencent_ddns_ModifyDynamicDNS_ipv4.sh && /path/to/tencent_ddns_ModifyDynamicDNS_ipv6.sh
+   ```
