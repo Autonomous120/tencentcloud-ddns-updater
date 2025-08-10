@@ -28,7 +28,7 @@ A lightweight DDNS updater using Tencent Cloud API 3.0, with full IPv4 and IPv6 
 6. **Router-only IPv4 variant**: I also provide a router-specific script `tencent_ddns_ModifyDynamicDNS_ipv4_Router.sh` which obtains the public IPv4 address by querying your router. This variant is intended **for deployment on routers only** — do not run it on non-router hosts. If your router does not support, use the regular `tencent_ddns_ModifyDynamicDNS_ipv4.sh` instead.
 
 # tencentcloud-ddns-updater  
-一个轻量级的 DDNS 更新脚本，使用腾讯云 API 3.0，支持完整的 IPv4 和 IPv6，自动更新你的动态 DNS 记录以匹配当前公网 IP 地址。
+一个轻量级的 DDNS 更新脚本，使用腾讯云 API 3.0，支持 IPv4 和 IPv6，自动更新 DDNS 记录以匹配当前公网 IP 地址。
 
 ## 功能特点
 
@@ -54,4 +54,4 @@ A lightweight DDNS updater using Tencent Cloud API 3.0, with full IPv4 and IPv6 
    ```
    */5 * * * * /path/to/tencent_ddns_ModifyDynamicDNS_ipv4.sh && /path/to/tencent_ddns_ModifyDynamicDNS_ipv6.sh
    ```
-6. **仅限路由器使用的 IPv4 版本**：提供了专门针对路由器的脚本 `tencent_ddns_ModifyDynamicDNS_ipv4_Router.sh`，通过查询路由获取公网 IPv4 地址。该脚本仅适合 **在路由器上部署**，请勿在非路由器设备上运行。如果路由器不支持，请使用常规的 `tencent_ddns_ModifyDynamicDNS_ipv4.sh` 脚本。
+6. **仅限路由器使用的 IPv4 版本**：提供了专门针对路由器的脚本 `tencent_ddns_ModifyDynamicDNS_ipv4_Router.sh`，通过查询路由获取公网 IPv4 地址。该脚本仅适合 **在路由器上部署**，请勿在非路由器设备上运行。如果路由器不支持，请使用 `tencent_ddns_ModifyDynamicDNS_ipv4.sh` 脚本。
