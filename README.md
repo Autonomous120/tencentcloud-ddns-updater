@@ -25,3 +25,6 @@ A lightweight DDNS updater using Tencent Cloud API 3.0, with full IPv4 and IPv6 
    ```
    */5 * * * * /path/to/tencent_ddns_ModifyDynamicDNS_ipv4.sh && /path/to/tencent_ddns_ModifyDynamicDNS_ipv6.sh
    ```
+6. **Router-only IPv4 variant**: I also provide a router-specific script `tencent_ddns_ModifyDynamicDNS_ipv4_Router.sh` which obtains the public IPv4 address by querying your router. This variant is intended **for deployment on routers only** — do not run it on non-router hosts.  
+   - Make sure your router exposes a queryable status/API endpoint and configure the script's router settings (router IP, credentials, endpoint path) before use.  
+   - If your router does not provide a suitable endpoint, use the regular `tencent_ddns_ModifyDynamicDNS_ipv4.sh` instead.
