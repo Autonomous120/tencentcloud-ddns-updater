@@ -2,11 +2,6 @@
 # =======================================
 # 此脚本通过查询路由的方式获取公网IPv4地址，只能在路由器部署
 
-# ========Domain Parameters==============
-domain='example.com'
-subdomain='@'
-recordId='recordIdHere'   # 运行一次tencent_ddns_get_RecordId_ipv4.sh可得
-
 # ===========输入外部文件============
 script_dir=$(dirname "$0")		# 获取当前脚本所在的目录
 env_file="$script_dir/.env"		# 定义.env 文件的相对路径
