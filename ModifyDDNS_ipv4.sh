@@ -22,7 +22,7 @@ version="2021-03-23"
 
 # ========比较IPv4地址====================
 # 获取当前本地IPv4地址
-ip=$(curl 4.ipw.cn)        #获取本机公网IPv4地址（通过4.ipw.cn访问获取公网IP）
+ip=$(curl ip4.now)        #获取本机公网IPv4地址（通过ip4.now访问获取公网IP）
 
 # 从缓存文件读取之前的IPv4地址
 if [[ -f $cache_file ]]; then
