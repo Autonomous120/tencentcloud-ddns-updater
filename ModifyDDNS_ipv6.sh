@@ -14,15 +14,39 @@ else
   exit 1
 fi
 
+# ========线路信息==============
+subdomain='***********'
+recordId='***********'
+recordLine='***********'
+
 # =======DNSPod API 3.0 Parameters========
 signatureMethod='HmacSHA1'
 region=ap-guangzhou
 url="https://dnspod.tencentcloudapi.com"
 version="2021-03-23"
 
-# ========比较IPv6地址====================
-# 获取当前本地IPv6地址
-ip=$(curl 6.ipw.cn)
+# ========获取并校验IPv6地址====================
+# 获取当前路由选择的IPv6源地址
+ip=$(ip -6 route get 240e:1f:1::1 2>/dev/null | awk -F'src ' '{print $2}' | awk '{print $1}')
+
+# 只允许全球单播地址（GUA，2000::/3），拒绝 fe80::/10、fc00::/7 等地址
+# 2000::/3 对应 IPv6 首段数值范围 0x2000–0x3FFF
+if [[ -z "$ip" ]]; then
+    echo "未能获取IPv6地址，取消更新"
+    exit 1
+fi
+
+first_hextet="${ip%%:*}"
+if ! [[ "$first_hextet" =~ ^[0-9a-fA-F]{1,4}$ ]]; then
+    echo "获取到的IPv6地址格式异常：$ip，取消更新"
+    exit 1
+fi
+
+first_value=$((16#$first_hextet))
+if (( first_value < 0x2000 || first_value > 0x3FFF )); then
+    echo "获取到的IPv6地址不是全球单播地址（GUA）：$ip，取消更新"
+    exit 1
+fi
 
 # 从缓存文件读取之前的IPv6地址
 if [[ -f $cache_file ]]; then
@@ -35,7 +59,6 @@ fi
 if [[ "$ip" != "$cached_ip" ]]; then
      # ========API: ModifyDynamicDNS==========       
 		action='ModifyDynamicDNS'
-        recordLine='默认'
         timestamp=$(date +%s)
         nonce=$(head -200 /dev/urandom | cksum | cut -f2 -d" ")
 
