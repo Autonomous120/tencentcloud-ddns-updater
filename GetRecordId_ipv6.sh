@@ -15,6 +15,7 @@ fi
 
 # ========Domain Parameters==============
 recordtype='AAAA'
+subdomain='******'
 
 # =======DnsPod API 3.0 Parameters========
 signatureMethod='HmacSHA1'
