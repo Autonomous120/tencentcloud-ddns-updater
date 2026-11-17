@@ -17,7 +17,7 @@ fi
 # ========Domain Parameters==============
 subdomain='****'
 recordId='************'
-recordLine='境内'
+recordLine='**'
 
 # =======DnsPod API 3.0 Parameters========
 signatureMethod='HmacSHA1'
