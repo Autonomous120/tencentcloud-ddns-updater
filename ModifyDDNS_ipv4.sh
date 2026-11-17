@@ -14,6 +14,11 @@ else
   exit 1
 fi
 
+# ========Domain Parameters==============
+subdomain='****'
+recordId='************'
+recordLine='境内'
+
 # =======DnsPod API 3.0 Parameters========
 signatureMethod='HmacSHA1'
 region=ap-guangzhou
