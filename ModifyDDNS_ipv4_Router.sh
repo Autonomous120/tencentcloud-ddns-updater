@@ -15,6 +15,11 @@ else
   exit 1
 fi
 
+# ========Domain Parameters==============
+subdomain='****'
+recordId='************'
+recordLine='**'
+
 # =======TencentCloud API 3.0 Parameters========
 signatureMethod='HmacSHA1'
 timestamp=$(date +%s)
