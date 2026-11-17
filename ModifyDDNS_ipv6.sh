@@ -15,9 +15,9 @@ else
 fi
 
 # ========线路信息==============
-subdomain='***********'
+subdomain='*****'
 recordId='***********'
-recordLine='***********'
+recordLine='**'
 
 # =======DNSPod API 3.0 Parameters========
 signatureMethod='HmacSHA1'
